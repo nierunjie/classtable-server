@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-        <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>课程信息</title>
 </head>
 
 <body>
-        <nav class="navbar navbar-default" role="navigation">
-                <div class="container-fluid">
-                  <div class="navbar-header">
-                    <a class="navbar-brand" href="#">我的课程表</a>
-                  </div>
-                </div>
-            </nav>
-
-            <div class="container">
-                    <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">课程信息</h3>
-                            </div>
-                            <div class="panel-body"> 
-                                    <span>{{ret}}</span>
-                                    <br/>
-                                    <button class="copy-btn btn-sm btn-info" data-clipboard-action="copy" data-clipboard-target="span">Copy</button>
-                            </div>
-                        </div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">我的课程表</a>
             </div>
-    <script src="dist/clipboard.min.js"></script>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">课程信息</h3>
+            </div>
+            <div class="panel-body">
+                <button class="copy-btn btn-sm btn-info" data-clipboard-action="copy" data-clipboard-target="span">Copy</button>
+                <br/>
+                <span>{{ret}}</span>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.bootcss.com/clipboard.js/2.0.0/clipboard.min.js"></script>
     <script>
-    var clipboard = new ClipboardJS('.copy-btn');
+        var clipboard = new ClipboardJS('.copy-btn');
 
-    clipboard.on('success', function(e) {
-        console.log(e);
-    });
+        clipboard.on('success', function (e) {
+            alert("复制成功");
+        });
 
-    clipboard.on('error', function(e) {
-        console.log(e);
-    });
+        clipboard.on('error', function (e) {
+            console.log(e);
+        });
     </script>
-        </body>
+</body>
+
 </html>

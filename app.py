@@ -45,14 +45,21 @@ def login():
         password = request.form.get('password')
         captcha_text = request.form.get('captcha_text')
 
-        year = request.form.get('year')
-        month = request.form.get('month')
-        day = request.form.get('day')
+        date = request.form.get('date')
 
-        u.start_time(year, month, day)
+        u.start_time(date)
 
         ret = u.get_classtable(username, password, captcha_text)
-        return render_template('return.html', ret=ret)
+
+        if ret == 'TimeOut':
+            return render_template('error.html', info='超时,请检查教务系统是否开放')
+        elif ret == 'UnknownError':
+            return render_template('error.html', info='发生未知错误')
+        elif ret == 'CaptchaError':
+            return render_template('error.html', info='请输入正确的信息')
+
+        else:
+            return render_template('return.html', ret=ret)
 
 
 if __name__ == '__main__':
