@@ -51,10 +51,11 @@ class URP(registrar.Registrar):
 
         return str(base64.b64encode(captcha_pic), encoding='utf-8')
 
-    def start_time(self, year, month, day):
-        self.year = year
-        self.month = month
-        self.day = day
+    def start_time(self, date):
+        date = str(date).split('/')
+        self.year = date[2]
+        self.month = date[0]
+        self.day = date[1]
 
     def get_classtable(self, username, password, captcha):
         self.generate()

@@ -92,7 +92,6 @@ class TSMC(registrar.Registrar):
         return str(base64.b64encode(captcha_pic), encoding='utf-8')
 
     def start_time(self,date):
-        print(date)
         date = str(date).split('/')
         self.year = date[2]
         self.month = date[0]
@@ -117,8 +116,8 @@ class TSMC(registrar.Registrar):
         try:
             items = soup.find_all('table')[3]
         except IndexError:
-            print(text)
-            return "Server Error"
+            print("Username:{}\nPassword:{}\n")
+            return "UnknownError"
 
         objs = []
         start = {"year": self.year, "month": self.month, "day": self.day}
