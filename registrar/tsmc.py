@@ -30,6 +30,7 @@ def format_week_num(week_num_str):
 
     # 直接获取周
     if week_num_str.find(',') != -1:
+        week_num_str = re.sub(r'第|周', '', week_num_str)
         return list(map(eval, week_num_str.split(',')))
 
     # 常规
