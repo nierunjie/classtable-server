@@ -1,12 +1,30 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>出错</title>
 </head>
 
 <body>
-    {{info}}
+        <nav class="navbar navbar-default" role="navigation">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <a class="navbar-brand" href="#">我的课程表</a>
+                  </div>
+                </div>
+            </nav>
+        <div class="container">
+                <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">出错啦</h3>
+                        </div>
+                        <div class="panel-body">
+                                {{info}}
+                        </div>
+                    </div>
+        </div>
 </body>
 
 </html>
