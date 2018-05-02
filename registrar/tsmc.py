@@ -117,7 +117,6 @@ class TSMC(registrar.Registrar):
         try:
             items = soup.find_all('table')[3]
         except IndexError:
-            print("Username:{}\nPassword:{}\n")
             return "UnknownError"
 
         objs = []
