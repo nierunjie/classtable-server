@@ -89,8 +89,11 @@ class TSMC(registrar.Registrar):
 
     def get_classtable(self, username, password, captcha):
         self.generate()
-        user_info = {"j_username": username,
-                     "j_password": password, "j_captcha": captcha}
+        user_info = {
+            "j_username": username,
+            "j_password": password,
+            "j_captcha": captcha
+        }
         response = self.session.post(
             self.login_url, headers=self.headers, data=user_info)
 

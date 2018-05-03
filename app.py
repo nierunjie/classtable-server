@@ -46,10 +46,12 @@ def login():
         captcha_text = request.form.get('captcha_text')
 
         date = request.form.get('date')
-
-        u.start_time(date)
-
-        ret = u.get_classtable(username, password, captcha_text)
+ 
+        try:
+            u.start_time(date)
+            ret = u.get_classtable(username, password, captcha_text)
+        except:
+            ret = 'UnknownError'
 
         if ret == 'TimeOut':
             return render_template('error.html', info='超时,请检查教务系统是否开放')
