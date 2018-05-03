@@ -7,8 +7,9 @@ from bs4 import BeautifulSoup
 
 from . import registrar
 
-MAP = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
-               "六": 6, "日": 7}
+MAP = {"一": 1, "二": 2, "三": 3,
+       "四": 4, "五": 5, "六": 6,
+       "日": 7}
 
 
 def format_week_num(week_num_str):
@@ -74,12 +75,6 @@ class TSMC(registrar.Registrar):
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36'
         }
 
-    def get_state(self):
-        return self.session.cookies.get_dict().get('JSESSIONID')
-
-    def set_state(self, state):
-        self.session.cookies.set('JSESSIONID', state)
-
     def get_captcha_base64(self):
         self.generate()
         try:
@@ -91,12 +86,6 @@ class TSMC(registrar.Registrar):
             return "UnknownError"
 
         return str(base64.b64encode(captcha_pic), encoding='utf-8')
-
-    def start_time(self,date):
-        date = str(date).split('/')
-        self.year = date[2]
-        self.month = date[0]
-        self.day = date[1]
 
     def get_classtable(self, username, password, captcha):
         self.generate()
@@ -139,6 +128,3 @@ class TSMC(registrar.Registrar):
         ret = {"classtable": objs, "start": start}
         ret = json.dumps(ret, ensure_ascii=False)
         return(ret)
-
-    def test(self):
-        print('TSMC')

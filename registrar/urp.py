@@ -27,17 +27,10 @@ class URP(registrar.Registrar):
         self.captcha_url = self.base_url()+'validateCodeAction.do'
         self.login_url = self.base_url()+'loginAction.do'
         self.classtable_url = self.base_url()+'xkAction.do?actionType=6'
-
         self.html_head = '<!DOCTYPE html><html><head><meta charset="utf-8"></head>'
         self.headers = {
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.162 Safari/537.36'
         }
-
-    def get_state(self):
-        return self.session.cookies.get_dict().get('JSESSIONID')
-
-    def set_state(self, state):
-        self.session.cookies.set('JSESSIONID', state)
 
     def get_captcha_base64(self):
         self.generate()
@@ -45,17 +38,9 @@ class URP(registrar.Registrar):
             captcha_pic = self.session.get(self.captcha_url, timeout=1).content
         except:
             return "TimeOut"
-
         if str(captcha_pic).find("html") != -1:
             return "UnknownError"
-
         return str(base64.b64encode(captcha_pic), encoding='utf-8')
-
-    def start_time(self, date):
-        date = str(date).split('/')
-        self.year = date[2]
-        self.month = date[0]
-        self.day = date[1]
 
     def get_classtable(self, username, password, captcha):
         self.generate()
@@ -77,7 +62,7 @@ class URP(registrar.Registrar):
 
         objs = []
         start = {"year": self.year, "month": self.month, "day": self.day}
-        map = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
+        MAP = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5,
                "六": 6, "七": 7, "八": 8, "九": 9, "十": 10}
 
         for items in BeautifulSoup(str(soup.find_all('table')[7]), 'lxml').find_all('tr', {'class': 'odd'}):
@@ -88,7 +73,7 @@ class URP(registrar.Registrar):
                 week_num = list(range(int(week_num_str[0]), int(
                     week_num_str[len(week_num_str)-1])+1))
                 day_of_week = int(item[1].get_text().strip())
-                class_of_day = map[item[2].get_text().strip()]
+                class_of_day = MAP[item[2].get_text().strip()]
                 duration = int(item[3].get_text().strip())
                 place = item[5].get_text().strip()+item[6].get_text().strip()
             else:
@@ -98,7 +83,7 @@ class URP(registrar.Registrar):
                 week_num = list(range(int(week_num_str[0]), int(
                     week_num_str[len(week_num_str)-1])+1))
                 day_of_week = int(item[12].get_text().strip())
-                class_of_day = map[item[13].get_text().strip()]
+                class_of_day = MAP[item[13].get_text().strip()]
                 duration = int(item[14].get_text().strip())
                 place = item[16].get_text().strip()+item[17].get_text().strip()
 
@@ -110,5 +95,3 @@ class URP(registrar.Registrar):
         ret = {"classtable": objs, "start": start}
         return json.dumps(ret, ensure_ascii=False)
 
-    def test(self):
-        print("URP")
