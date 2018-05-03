@@ -18,6 +18,7 @@
 目前按以下规范,若有更好的建议请提issue.
 
 > 以**小写**的学校名缩写为文件名.如 *urp.py*
+> 
 > 以**全部大写**的学校名为类名,继承Registrar.如class URP(registrar.Registrar)
 
 ## 许可证
