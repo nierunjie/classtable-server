@@ -26,24 +26,24 @@
         <form action="" method="POST">
           <div class="form-group">
             <label>用户名</label>
-            <input type="text" class="form-control" placeholder="Username" name="username">
+            <input type="text" class="form-control" placeholder="Username" name="username" required>
           </div>
 
           <div class="form-group">
             <label>密码</label>
-            <input type="password" class="form-control" placeholder="Password" name="password">
+            <input type="password" class="form-control" placeholder="Password" name="password" required>
           </div>
 
           <div class="form-group">
             <label>开学日期</label>
-            <input type="text" id="datepicker" placeholder="Date" class="form-control" name="date">
+            <input type="text" id="datepicker" placeholder="Date" class="form-control" name="date" required>
           </div>
 
           <div class="form-group">
             <div>
-                <label>验证码</label>
-                <img class="img-responsive pull-right" src='data:image/jpg;base64,{{captcha_base64}}'>
-     
+              <label>验证码</label>
+              <img class="img-responsive pull-right" src='data:image/jpg;base64,{{captcha_base64}}'>
+
             </div>
             <input type="captcha" class="form-control" placeholder="Captcha" name="captcha_text">
           </div>
