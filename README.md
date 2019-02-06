@@ -21,6 +21,12 @@
 > 
 > 以**全部大写**的学校名为类名,继承Registrar.如class URP(registrar.Registrar)
 
+## 联系我们
+
+本项目旨在解决高校生对课程表的需求，如果您需要且仅需要课程表， 并且有能力完成自己学校相关内容的开发和维护，请加入我们
+
+[Telegram](https://t.me/joinchat/HhqPqxRn9gEP70ciAWaRng)
+
 ## 许可证
 
 > GPL-3.0
