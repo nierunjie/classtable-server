@@ -39,10 +39,10 @@
             <input type="text" id="datepicker" placeholder="Date" class="form-control" name="date" required>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" id="captcha">
             <div>
               <label>验证码</label>
-              <img class="img-responsive pull-right" src='data:image/jpg;base64,{{captcha_base64}}' alt="无需验证码">
+              <img class="img-responsive pull-right" src='data:image/jpg;base64,{{captcha_base64}}'>
 
             </div>
             <input type="captcha" class="form-control" placeholder="Captcha" name="captcha_text">
@@ -64,6 +64,11 @@
         changeYear: true
       });
     });
+  </script>
+  <script>
+      if({{captcha_base64}}=="none"){
+          $("#captcha").hide();
+      }
   </script>
 </body>
 

@@ -5,4 +5,4 @@ class CUPL(urp.URP):
         return 'http://urp.cupl.edu.cn/'
 
     def get_captcha_base64(self):
-        return None
+        return "none"
