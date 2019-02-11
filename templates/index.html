@@ -36,22 +36,36 @@
     </div>
 
     <div class="container">
-        <div class="alert alert-danger" role="alert">
-
+        <div class="alert alert-warning" role="alert">
             <h4 class="alert-heading">注意</h4>
-            该课程表由爬虫生成，教务系统的格式常发生变化，可能会生成不准确的课表，
-            本项目不保证爬取的信息准确无误，由此产生的问题本项目不负任何责任，
-            请在对照教务系统确定信息无误后使用。<br />
+            课表由爬虫生成，教务系统的格式可能发生变化，
+            因此不保证爬取的信息准确无误，请在对照教务系统确定信息无误后使用。
+            <br />
+            本项目仅保证不收集用户信息，但不对使用该项目引发的任何问题负责。
+            <br />
+            在存储空间不足时，小程序会释放长期未使用的存储空间，
+            该小程序不访问网络，所有信息均保存在本地的长期存储空间，
+            因此课程表长期不使用可能会丢失信息，建议自行保存本网站生成的数据，
+            在数据丢失时可以快速恢复。
         </div>
     </div>
 
     <div class="container">
-        <div class="alert alert-warning" role="alert">
-            <h4 class="alert-heading">加入我们</h4>
+        <div class="alert alert-success" role="alert">
+            <h4 class="alert-heading">源码</h4>
+            <ul class="list-unstyled">
+                <li><a href="https://github.com/lanthora/classtable-server" class="alert-link">服务端源码</a>
+                    即该网站，爬取教务系统并返回所需json数据</li>
+                <li><a href="https://github.com/lanthora/classtable-client" class="alert-link">客户端源码</a>
+                    解析json数据并在微信小程序前端显示</li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading">其他</h4>
             <ul class="list-unstyled">
                 <li><a href="https://t.me/joinchat/HhqPqxRn9gEP70ciAWaRng" class="alert-link">Telegram群</a></li>
-                <li><a href="https://github.com/lanthora/classtable-server" class="alert-link">服务端源码</a> 即该网站，爬取教务系统并返回所需json数据</li>
-                <li><a href="https://github.com/lanthora/classtable-client" class="alert-link">客户端源码</a> 解析json数据并在微信小程序前端显示</li>
             </ul>
         </div>
     </div>
