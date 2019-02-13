@@ -4,10 +4,6 @@
 
 微信小程序源码[在这里](https://github.com/nierunjie/classtable-client)
 
-## 目前支持的学校列表
-* 山东农业大学
-* 泰山医学院
-
 ## 如何参与
 
 爬虫相关操作均在 *registrar* 目录下.
