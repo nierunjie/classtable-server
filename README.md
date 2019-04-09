@@ -10,7 +10,17 @@
 
 根据实际情况选择性的实现 *class Registrar* 中的方法.
 
+## 测试
+
+本地可以使用Docker测试(构建并运行)，请先确定Docker环境可用
+
+```bash
+docker build -t classtable:latest .
+docker run -p 5000:5000 -it classtable
+```
+
 ## 规范
+
 目前按以下规范,若有更好的建议请提issue.
 
 > 以**小写**的学校名缩写为文件名.如 *urp.py*

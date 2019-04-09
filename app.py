@@ -59,7 +59,6 @@ def login():
             return render_template('error.html', info='发生未知错误')
         elif ret == 'CaptchaError':
             return render_template('error.html', info='请输入正确的信息')
-
         else:
             return render_template('return.html', ret=ret)
 
