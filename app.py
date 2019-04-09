@@ -46,7 +46,7 @@ def login():
         captcha_text = request.form.get('captcha_text')
 
         date = request.form.get('date')
- 
+
         try:
             u.start_time(date)
             ret = u.get_classtable(username, password, captcha_text)
@@ -65,4 +65,4 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0')
